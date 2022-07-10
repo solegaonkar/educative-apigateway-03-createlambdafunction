@@ -1,8 +1,19 @@
 #!/bin/sh -v
 
+# -----------------------------------------------------------------
+# Configure the AWS CLI to let it communicate with your account
+# -----------------------------------------------------------------
+aws configure set aws_access_key_id $ACCESS_KEY_ID
+aws configure set aws_secret_access_key $SECRET_ACCESS_KEY
+aws configure set region us-east-1
+
+# -----------------------------------------------------------------
 # Deploying a Lambda Function requires two steps.
+# -----------------------------------------------------------------
 # 1. Create a deployment ZIP file and upload it to S3
 # 2. Deploy the CloudFormation template that picks this ZIP file and makes a Lambda function
+#
+# The below code will do both
 
 # -----------------------------------------------------------------
 # Cleanup anything that is left over from the last deployment.
