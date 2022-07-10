@@ -60,6 +60,7 @@ url=`aws lambda get-function-url-config --function-name EducativeHelloWorld --re
 # -----------------------------------------------------------------
 # Invoke the Lambda Function URL using curl
 # -----------------------------------------------------------------
+echo $url
 curl $url
 
 
