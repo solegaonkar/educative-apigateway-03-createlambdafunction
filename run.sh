@@ -8,6 +8,14 @@ aws configure set aws_secret_access_key $SECRET_ACCESS_KEY
 aws configure set region us-east-1
 
 # -----------------------------------------------------------------
+# Delete any old deployments
+# -----------------------------------------------------------------
+# 1. Trigger CloudFormation stack delete
+# 2. Wait for the stack to be deleted 
+aws cloudformation delete-stack --stack-name  EducativeCourseApiGateway
+aws cloudformation wait stack-delete-complete --stack-name EducativeCourseApiGateway
+
+# -----------------------------------------------------------------
 # Deploying a Lambda Function requires two steps.
 # -----------------------------------------------------------------
 # 1. Create a deployment ZIP file and upload it to S3
